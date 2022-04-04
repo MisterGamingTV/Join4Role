@@ -57,7 +57,7 @@ client.on('voiceStateUpdate', async (oldState, newState) => {
 		} else return; // channel IS ignored channel
 	} 
 	// disconnect event
-	else if (oldChannel?.id) { // fehler hier?
+	else { // lass mal
 		console.log('[LOG] Disconnect event?');
 		if (oldChannel.id === config.ignore_channel) return; // return if previous channel was ignored 
 
@@ -67,9 +67,6 @@ client.on('voiceStateUpdate', async (oldState, newState) => {
 		} catch (error) {
 			console.log(`[ERROR] Wasn't able to remove role \`${role.name}\` from member (${member.user.tag})`);
 		}
-	}
-	else {
-		console.log('Last else');
 	}
 });
 
